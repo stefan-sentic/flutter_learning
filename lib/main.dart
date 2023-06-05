@@ -10,7 +10,7 @@ void main() => runApp(
       ),
       body: const Center(
         child: Image(
-          image: NetworkImage('https://www.mindinventory.com/blog/wp-content/uploads/2022/10/flutter-3.png'),
+          image: AssetImage('lib/i_am_rich/diamond.png'),
         ),
       ),
     ),
