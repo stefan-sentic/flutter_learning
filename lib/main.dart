@@ -36,54 +36,54 @@ class MiCardApp extends StatelessWidget {
                   color: Colors.teal.shade100,
                 ),
               ),
-              Container(
-                color: Colors.white,
-                padding: const EdgeInsets.all(10),
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-                child: const Row(
-                  children: [
-                    Icon(
-                      Icons.phone,
-                      color: Colors.teal,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      '+381 61 234 23 23',
-                      style: TextStyle(
-                        fontFamily: 'Source Sans Pro',
-                        fontSize: 20,
+              const Card(
+                margin: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.phone,
                         color: Colors.teal,
                       ),
-                    )
-                  ],
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        '+381 61 234 23 23',
+                        style: TextStyle(
+                          fontFamily: 'Source Sans Pro',
+                          fontSize: 20,
+                          color: Colors.teal,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
-              Container(
-                color: Colors.white,
-                padding: const EdgeInsets.all(10),
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-                child: const Row(
-                  children: [
-                    Icon(
-                      Icons.email,
-                      color: Colors.teal,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'john.doe@gmail.com',
-                      style: TextStyle(
-                        fontFamily: 'Source Sans Pro',
-                        fontSize: 20,
+              const Card(
+                margin: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.email,
                         color: Colors.teal,
                       ),
-                    )
-                  ],
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        'john.doe@gmail.com',
+                        style: TextStyle(
+                          fontFamily: 'Source Sans Pro',
+                          fontSize: 20,
+                          color: Colors.teal,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],
