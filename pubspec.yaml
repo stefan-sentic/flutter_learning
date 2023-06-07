@@ -62,6 +62,7 @@ flutter:
   assets:
     - lib/i_am_rich/diamond.png
     - lib/mi_card/image/john_doe.jpg
+    - lib/dicee/image/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
