@@ -5,13 +5,13 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 QuestionLogic logic = QuestionLogic();
 
 void main() => runApp(
-      MaterialApp(
-        home: Scaffold(
-          backgroundColor: Colors.grey.shade900,
-          body: const SafeArea(child: QuizzlerPage()),
-        ),
-      ),
-    );
+  MaterialApp(
+    home: Scaffold(
+      backgroundColor: Colors.grey.shade900,
+      body: const SafeArea(child: QuizzlerPage()),
+    ),
+  ),
+);
 
 class QuizzlerPage extends StatefulWidget {
   const QuizzlerPage({super.key});
@@ -32,18 +32,18 @@ class _QuizzlerPageState extends State<QuizzlerPage> {
         children: [
           Expanded(
               child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: Text(
-                logic.getNextQuestionText(),
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 26,
+                child: Padding(
+                  padding: const EdgeInsets.all(24.0),
+                  child: Text(
+                    logic.getNextQuestionText(),
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 26,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          )),
+              )),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: FilledButton(
