@@ -66,6 +66,7 @@ flutter:
     - lib/mi_card/image/john_doe.jpg
     - lib/dicee/image/
     - lib/magic_ball/image/
+    - lib/destini/image/
 
     - lib/xylophone/asset/
   # An image asset can refer to one or more resolution-specific "variants", see
