@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:learning/weather/screens/loading_screen.dart';
+import 'package:learning/clima/screens/loading_screen.dart';
 
-class WeatherApp extends StatelessWidget {
-  const WeatherApp({super.key});
+class ClimaApp extends StatelessWidget {
+  const ClimaApp({super.key});
 
   @override
   Widget build(BuildContext context) {

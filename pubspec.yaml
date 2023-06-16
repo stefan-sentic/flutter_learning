@@ -38,6 +38,9 @@ dependencies:
   audioplayers: ^4.1.0
   rflutter_alert: ^2.0.7
   font_awesome_flutter: ^10.4.0
+  geolocator: ^9.0.2
+  http: ^0.13.5
+
 
 dev_dependencies:
   flutter_test:
@@ -68,9 +71,11 @@ flutter:
     - lib/dicee/image/
     - lib/magic_ball/image/
     - lib/destini/image/
-    - lib/weather/image/
+    - lib/clima/image/
 
     - lib/xylophone/asset/
+
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
@@ -91,7 +96,7 @@ flutter:
         - asset: lib/mi_card/font/SourceSansPro-Regular.ttf
     - family: Spartan MB
       fonts:
-        - asset: lib/weather/font/SpartanMB-Black.otf
+        - asset: lib/clima/font/SpartanMB-Black.otf
 
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
