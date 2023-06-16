@@ -2,18 +2,23 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-void main() => runApp(
-      MaterialApp(
-        home: Scaffold(
-          backgroundColor: Colors.red,
-          appBar: AppBar(
-            title: const Text('Dicee'),
-            backgroundColor: Colors.red,
-          ),
-          body: const DiceePage(),
-        ),
+class DiceeScreen extends StatelessWidget {
+  const DiceeScreen({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.red,
+      appBar: AppBar(
+        title: const Text('Dicee'),
+        backgroundColor: Colors.red,
       ),
+      body: const DiceePage(),
     );
+  }
+}
 
 class DiceePage extends StatefulWidget {
   const DiceePage({super.key});

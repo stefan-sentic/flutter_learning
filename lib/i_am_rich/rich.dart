@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(
-  MaterialApp(
-    home: Scaffold(
+class ImRichScreen extends StatelessWidget {
+  const ImRichScreen({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
       backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         title: const Text("I Am Rich"),
@@ -13,6 +18,6 @@ void main() => runApp(
           image: AssetImage('lib/i_am_rich/diamond.png'),
         ),
       ),
-    ),
-  ),
-);
+    );
+  }
+}

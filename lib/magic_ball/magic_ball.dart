@@ -2,18 +2,23 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-void main() => runApp(
-      MaterialApp(
-        home: Scaffold(
-          backgroundColor: Colors.lightBlue,
-          appBar: AppBar(
-            title: const Text('Ask Me Anything'),
-            backgroundColor: Colors.blueAccent,
-          ),
-          body: const MagicBall(),
-        ),
+class MagicBallScreen extends StatelessWidget {
+  const MagicBallScreen({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.lightBlue,
+      appBar: AppBar(
+        title: const Text('Ask Me Anything'),
+        backgroundColor: Colors.blueAccent,
       ),
+      body: const MagicBall(),
     );
+  }
+}
 
 class MagicBall extends StatefulWidget {
   const MagicBall({super.key});

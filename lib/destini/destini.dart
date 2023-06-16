@@ -1,31 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:learning/destini/story_logic.dart';
 
-void main() => runApp(
-      const MaterialApp(
-        home: Scaffold(
-          body: DestiniPage(),
-        ),
-      ),
-    );
-
 var logic = StoryLogic();
 
-class DestiniPage extends StatefulWidget {
-  const DestiniPage({super.key});
+class DestiniScreen extends StatefulWidget {
+  const DestiniScreen({super.key});
 
   @override
-  State<DestiniPage> createState() => _DestiniPageState();
+  State<DestiniScreen> createState() => _DestiniScreenState();
 }
 
-class _DestiniPageState extends State<DestiniPage> {
+class _DestiniScreenState extends State<DestiniScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
+        body: Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('lib/destini/image/background.png'),
-            fit: BoxFit.fill),
+            image: AssetImage('lib/destini/image/background.png'), fit: BoxFit.fill),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -73,7 +65,7 @@ class _DestiniPageState extends State<DestiniPage> {
           ),
         ],
       ),
-    );
+    ));
   }
 
   void onPathChosen({required int choiceNumber}) {

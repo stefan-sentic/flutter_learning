@@ -4,34 +4,28 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 
 QuestionLogic logic = QuestionLogic();
 
-void main() => runApp(
-  MaterialApp(
-    home: Scaffold(
-      backgroundColor: Colors.grey.shade900,
-      body: const SafeArea(child: QuizzlerPage()),
-    ),
-  ),
-);
-
-class QuizzlerPage extends StatefulWidget {
-  const QuizzlerPage({super.key});
+class QuizzlerScreen extends StatefulWidget {
+  const QuizzlerScreen({super.key});
 
   @override
-  State<QuizzlerPage> createState() => _QuizzlerPageState();
+  State<QuizzlerScreen> createState() => _QuizzlerScreenState();
 }
 
-class _QuizzlerPageState extends State<QuizzlerPage> {
+class _QuizzlerScreenState extends State<QuizzlerScreen> {
   final List<Icon> scoreKeeper = [];
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Expanded(
-              child: Center(
+    return Scaffold(
+      backgroundColor: Colors.grey.shade900,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                  child: Center(
                 child: Padding(
                   padding: const EdgeInsets.all(24.0),
                   child: Text(
@@ -44,36 +38,38 @@ class _QuizzlerPageState extends State<QuizzlerPage> {
                   ),
                 ),
               )),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: FilledButton(
-              style: FilledButton.styleFrom(
-                backgroundColor: Colors.green,
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: FilledButton(
+                  style: FilledButton.styleFrom(
+                    backgroundColor: Colors.green,
+                  ),
+                  onPressed: () {
+                    onAnswerSelected(context, true);
+                  },
+                  child: const Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Text('True'),
+                  ),
+                ),
               ),
-              onPressed: () {
-                onAnswerSelected(context, true);
-              },
-              child: const Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Text('True'),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: FilledButton(
+                  style: FilledButton.styleFrom(backgroundColor: Colors.red),
+                  onPressed: () {
+                    onAnswerSelected(context, false);
+                  },
+                  child: const Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Text('False'),
+                  ),
+                ),
               ),
-            ),
+              Row(children: scoreKeeper)
+            ],
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: FilledButton(
-              style: FilledButton.styleFrom(backgroundColor: Colors.red),
-              onPressed: () {
-                onAnswerSelected(context, false);
-              },
-              child: const Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Text('False'),
-              ),
-            ),
-          ),
-          Row(children: scoreKeeper)
-        ],
+        ),
       ),
     );
   }

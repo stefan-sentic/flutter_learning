@@ -18,53 +18,59 @@ class ResultsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const Padding(
-              padding: EdgeInsets.all(15.0),
-              child: Text(
-                'Your Result',
-                style: titleStyle,
+    return Theme(
+      data: ThemeData.dark().copyWith(
+        primaryColor: primaryColor,
+        scaffoldBackgroundColor: primaryColor,
+      ),
+      child: Scaffold(
+        body: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const Padding(
+                padding: EdgeInsets.all(15.0),
+                child: Text(
+                  'Your Result',
+                  style: titleStyle,
+                ),
               ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(8, 16, 8, 8),
-                child: ReusableCard(
-                  color: activeCardColor,
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text(
-                          resultText.toUpperCase(),
-                          style: resultTextStyle,
-                        ),
-                        Text(
-                          bmiResult,
-                          style: bmiTextStyle,
-                        ),
-                        Text(
-                          description,
-                          textAlign: TextAlign.center,
-                          style: labelTextStyle,
-                        ),
-                      ],
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 16, 8, 8),
+                  child: ReusableCard(
+                    color: activeCardColor,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text(
+                            resultText.toUpperCase(),
+                            style: resultTextStyle,
+                          ),
+                          Text(
+                            bmiResult,
+                            style: bmiTextStyle,
+                          ),
+                          Text(
+                            description,
+                            textAlign: TextAlign.center,
+                            style: labelTextStyle,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            BottomButton(
-                text: 'RE-CALCULATE',
-                onTap: () {
-                  Navigator.pop(context);
-                })
-          ],
+              BottomButton(
+                  text: 'RE-CALCULATE',
+                  onTap: () {
+                    Navigator.pop(context);
+                  })
+            ],
+          ),
         ),
       ),
     );

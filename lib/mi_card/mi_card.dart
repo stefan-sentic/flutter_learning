@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MiCardApp());
-
-class MiCardApp extends StatelessWidget {
-  const MiCardApp({super.key});
+class MiCardScreen extends StatelessWidget {
+  const MiCardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
