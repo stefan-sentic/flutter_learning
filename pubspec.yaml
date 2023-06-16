@@ -68,6 +68,7 @@ flutter:
     - lib/dicee/image/
     - lib/magic_ball/image/
     - lib/destini/image/
+    - lib/weather/image/
 
     - lib/xylophone/asset/
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -88,6 +89,9 @@ flutter:
     - family: Source Sans Pro
       fonts:
         - asset: lib/mi_card/font/SourceSansPro-Regular.ttf
+    - family: Spartan MB
+      fonts:
+        - asset: lib/weather/font/SpartanMB-Black.otf
 
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
