@@ -1,4 +1,21 @@
-class WeatherModel {
+import 'package:geolocator/geolocator.dart';
+import 'package:learning/clima/model/weather.dart';
+
+import '../model/location.dart';
+import 'networking.dart';
+
+class WeatherUtils {
+
+  Future<WeatherData?> getWeatherDataForCity(String cityName) async {
+    return NetworkHelper.getCityWeatherData(cityName);
+  }
+
+  Future<WeatherData?> getWeatherData() async {
+    final position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.low);
+    final location = Location(latitude: position.latitude, longitude: position.longitude);
+    return NetworkHelper.getWeatherData(location);
+  }
+
   String getWeatherIcon(int condition) {
     if (condition < 300) {
       return '🌩';

@@ -8,7 +8,7 @@ import 'package:learning/quizzler/quizzler.dart';
 import 'package:learning/xylophone/xylophone.dart';
 
 import 'bmi_calculator/screen/input_page.dart';
-import 'clima/weather.dart';
+import 'clima/clima.dart';
 import 'i_am_rich/rich.dart';
 
 final Map<String, Widget Function(BuildContext context)> navigationRoutes = {
