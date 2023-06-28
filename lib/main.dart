@@ -7,6 +7,7 @@ import 'package:learning/mi_card/mi_card.dart';
 import 'package:learning/quizzler/quizzler.dart';
 import 'package:learning/xylophone/xylophone.dart';
 
+import 'bitcoin_ticker/coin_ticker.dart';
 import 'bmi_calculator/screen/input_page.dart';
 import 'clima/clima.dart';
 import 'i_am_rich/rich.dart';
@@ -22,6 +23,7 @@ final Map<String, Widget Function(BuildContext context)> navigationRoutes = {
   '/destini': (context) => const DestiniScreen(),
   '/bmi_calculator': (context) => const InputPage(),
   '/clima': (context) => const ClimaApp(),
+  '/coin_ticker': (context) => const CoinTickerApp(),
 };
 
 void main() => runApp(
