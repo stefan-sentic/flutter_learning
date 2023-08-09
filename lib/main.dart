@@ -1,6 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:learning/destini/destini.dart';
 import 'package:learning/dicee/dicee.dart';
+import 'package:learning/flash_chat/flash_chat.dart';
 import 'package:learning/home.dart';
 import 'package:learning/magic_ball/magic_ball.dart';
 import 'package:learning/mi_card/mi_card.dart';
@@ -24,6 +26,7 @@ final Map<String, Widget Function(BuildContext context)> navigationRoutes = {
   '/bmi_calculator': (context) => const InputPage(),
   '/clima': (context) => const ClimaApp(),
   '/coin_ticker': (context) => const CoinTickerApp(),
+  '/flash_chat': (context) => const FlashChatApp(),
 };
 
 void main() => runApp(

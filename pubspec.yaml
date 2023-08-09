@@ -73,6 +73,7 @@ flutter:
     - lib/magic_ball/image/
     - lib/destini/image/
     - lib/clima/image/
+    - lib/flash_chat/image/
 
     - lib/xylophone/asset/
 

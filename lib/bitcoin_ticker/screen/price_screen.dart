@@ -72,15 +72,12 @@ class _PriceScreenState extends State<PriceScreen> {
       padding: const EdgeInsets.fromLTRB(18.0, 18.0, 18.0, 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: coinData
-            .map((coin) =>
-                buildCoinCard(coinName: coin.name, price: coin.price, currency: coin.priceCurrency))
-            .toList(),
+        children: coinData.map((coin) => buildCoinCard(coin: coin)).toList(),
       ),
     );
   }
 
-  Card buildCoinCard({required String coinName, required double price, required String currency}) {
+  Card buildCoinCard({required CoinData coin}) {
     return Card(
       color: Colors.lightBlueAccent,
       elevation: 5.0,
@@ -90,7 +87,7 @@ class _PriceScreenState extends State<PriceScreen> {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
         child: Text(
-          '1 $coinName = ${price.toStringAsFixed(3)} $currency',
+          '1 ${coin.name} = ${coin.price.toStringAsFixed(3)} ${coin.priceCurrency}',
           textAlign: TextAlign.center,
           style: const TextStyle(
             fontSize: 20.0,
@@ -103,9 +100,9 @@ class _PriceScreenState extends State<PriceScreen> {
 
   Widget buildCurrencyPicker() {
     return Platform.isAndroid
-        ? Container(
-      width: 160,
-          child: DropdownButtonFormField<String>(
+        ? SizedBox(
+            width: 160,
+            child: DropdownButtonFormField<String>(
               value: selectedCurrency,
               decoration: const InputDecoration(
                 filled: true,
@@ -119,23 +116,30 @@ class _PriceScreenState extends State<PriceScreen> {
               iconEnabledColor: Colors.blueAccent,
               style: const TextStyle(color: Colors.blueAccent, fontSize: 18),
               items: currencies
-                  .map((currency) => DropdownMenuItem<String>(value: currency, child: Text(currency)))
+                  .map((currency) =>
+                      DropdownMenuItem<String>(value: currency, child: Text(currency)))
                   .toList(),
               onChanged: (String? value) {
-                setState(() {
-                  if (value != null) {
-                    selectedCurrency = value;
-                    dataLoaded = false;
-                    loadData();
-                  }
-                });
+                onCurrencyChanged(value);
               },
             ),
-        )
+          )
         : CupertinoPicker(
             itemExtent: 32,
-            onSelectedItemChanged: (index) {},
+            onSelectedItemChanged: (index) {
+              onCurrencyChanged(currencies[index]);
+            },
             children: currencies.map((currency) => Text(currency)).toList());
+  }
+
+  void onCurrencyChanged(String? newCurrency) {
+    setState(() {
+      if (newCurrency != null) {
+        selectedCurrency = newCurrency;
+        dataLoaded = false;
+        loadData();
+      }
+    });
   }
 
   Future<void> loadData() async {
