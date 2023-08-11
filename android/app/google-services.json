@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "550789031761",
+    "project_id": "test-project-f947c",
+    "storage_bucket": "test-project-f947c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:550789031761:android:51fe82c0b8cb986c2dd570",
+        "android_client_info": {
+          "package_name": "com.sentic.learning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "550789031761-vfhel7i0hi09finonun2vst3jn7g57n4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sentic.learning",
+            "certificate_hash": "e45780d74b08de608781f0df2b0eb424ba97123c"
+          }
+        },
+        {
+          "client_id": "550789031761-3aj5djk1ph7l73fqjie9fpm4bb6pcnj2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoaxGvHCCs07HPy_X32mWyx34iBdL_N_M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "550789031761-3aj5djk1ph7l73fqjie9fpm4bb6pcnj2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
