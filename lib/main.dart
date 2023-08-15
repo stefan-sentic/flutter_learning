@@ -6,6 +6,7 @@ import 'package:learning/home.dart';
 import 'package:learning/magic_ball/magic_ball.dart';
 import 'package:learning/mi_card/mi_card.dart';
 import 'package:learning/quizzler/quizzler.dart';
+import 'package:learning/todoey/todoey_app.dart';
 import 'package:learning/xylophone/xylophone.dart';
 
 import 'bitcoin_ticker/coin_ticker.dart';
@@ -26,6 +27,7 @@ final Map<String, Widget Function(BuildContext context)> navigationRoutes = {
   '/clima': (context) => const ClimaApp(),
   '/coin_ticker': (context) => const CoinTickerApp(),
   '/flash_chat': (context) => const FlashChatApp(),
+  '/todoey': (context) => const TodoeyApp(),
 };
 
 void main() => runApp(
