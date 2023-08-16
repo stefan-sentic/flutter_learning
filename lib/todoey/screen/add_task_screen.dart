@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:learning/todoey/model/task_data.dart';
 import 'package:learning/todoey/screen/tasks_screen.dart';
-
-import '../task.dart';
+import 'package:provider/provider.dart';
 
 class AddTaskScreen extends StatelessWidget {
-  final Function(Task) addTaskCallback;
-
-  const AddTaskScreen({super.key, required this.addTaskCallback});
+  const AddTaskScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +13,11 @@ class AddTaskScreen extends StatelessWidget {
       padding: const EdgeInsets.all(32.0),
       child: Container(
         decoration: const BoxDecoration(
-            borderRadius:
-                BorderRadius.only(topLeft: Radius.circular(32), topRight: Radius.circular(32))),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(32),
+            topRight: Radius.circular(32),
+          ),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -39,7 +40,8 @@ class AddTaskScreen extends StatelessWidget {
             ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: appThemeColor),
               onPressed: () {
-                addTaskCallback(Task(name: taskName));
+                Provider.of<TaskData>(context, listen: false).addTask(taskName);
+                Navigator.pop(context);
               },
               child: const Text("Add"),
             ),

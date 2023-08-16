@@ -1,24 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:learning/todoey/component/tasks_header.dart';
+import 'package:learning/todoey/model/task_data.dart';
 import 'package:learning/todoey/screen/add_task_screen.dart';
+import 'package:provider/provider.dart';
 
 import '../component/task_list.dart';
-import '../task.dart';
 
 const appThemeColor = Colors.lightBlueAccent;
 
-class TasksScreen extends StatefulWidget {
+class TasksScreen extends StatelessWidget {
   const TasksScreen({super.key});
-
-  @override
-  State<TasksScreen> createState() => _TasksScreenState();
-}
-
-class _TasksScreenState extends State<TasksScreen> {
-  final List<Task> tasks = [
-    Task(name: 'Buy milk'),
-    Task(name: 'Buy eggs'),
-    Task(name: 'Buy detergent', isFinished: true),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +19,7 @@ class _TasksScreenState extends State<TasksScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          buildHeader(),
+          const TasksHeader(),
           buildList(),
         ],
       ),
@@ -43,6 +34,7 @@ class _TasksScreenState extends State<TasksScreen> {
         color: Colors.white,
       ),
       onPressed: () {
+        final model = Provider.of<TaskData>(context,listen:false);
         showModalBottomSheet(
           context: context,
           isScrollControlled: true,
@@ -52,45 +44,17 @@ class _TasksScreenState extends State<TasksScreen> {
               topRight: Radius.circular(18),
             ),
           ),
-          builder: (context) => SingleChildScrollView(
-            child: Container(
+          builder: (context) => ListenableProvider(
+            create: (context) => model,
+            child: SingleChildScrollView(
+              child: Container(
                 padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
-                child: AddTaskScreen(
-                  addTaskCallback: (task) {
-                    setState(() {
-                      tasks.add(task);
-                    });
-                    Navigator.pop(context);
-                  },
-                )),
+                child: const AddTaskScreen(),
+              ),
+            ),
           ),
         );
       },
-    );
-  }
-
-  Widget buildHeader() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 46),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const CircleAvatar(
-            backgroundColor: Colors.white,
-            radius: 30,
-            child: Icon(Icons.list, size: 30, color: appThemeColor),
-          ),
-          const SizedBox(height: 28),
-          const Text(
-            'Todoey',
-            style: TextStyle(color: Colors.white, fontSize: 42, fontWeight: FontWeight.bold),
-          ),
-          Text(
-            '${tasks.length} Tasks',
-            style: const TextStyle(color: Colors.white, fontSize: 16),
-          )
-        ],
-      ),
     );
   }
 
@@ -104,9 +68,9 @@ class _TasksScreenState extends State<TasksScreen> {
             topRight: Radius.circular(18),
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: TaskList(tasks: tasks),
+        child: const Padding(
+          padding: EdgeInsets.all(16),
+          child: TaskList(),
         ),
       ),
     );

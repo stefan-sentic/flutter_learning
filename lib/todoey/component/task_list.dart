@@ -1,32 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:learning/todoey/component/task_item.dart';
+import 'package:learning/todoey/model/task_data.dart';
+import 'package:provider/provider.dart';
 
-import '../task.dart';
+class TaskList extends StatelessWidget {
+  const TaskList({super.key});
 
-class TaskList extends StatefulWidget {
-  final List<Task> tasks;
-
-  const TaskList({super.key, required this.tasks});
-
-  @override
-  State<TaskList> createState() => _TaskListState();
-}
-
-class _TaskListState extends State<TaskList> {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: widget.tasks.length,
-      itemBuilder: (context, index) {
-        return TaskItem(
-          task: widget.tasks[index],
-          taskCompletionCallback: (isTaskFinished) {
-            setState(() {
-              widget.tasks[index].isFinished = isTaskFinished ?? false;
-            });
-          },
-        );
-      },
-    );
+    return Consumer<TaskData>(builder: (context, tasksData, child) {
+      return ListView.builder(
+        itemCount: tasksData.taskCount,
+        itemBuilder: (context, index) {
+          return TaskItem(
+            task: tasksData.getTask(index),
+            taskCompletionCallback: (isTaskFinished) {
+              tasksData.updateTaskCompletion(index);
+            },
+            taskDeleteCallback: () {
+              tasksData.removeTask(index);
+            },
+          );
+        },
+      );
+    });
   }
 }
