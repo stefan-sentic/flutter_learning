@@ -10,9 +10,8 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Flutter examples'),),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: ListView(
             children: getListOfActions(context),
           ),
         ),

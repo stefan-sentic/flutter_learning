@@ -5,6 +5,8 @@ import 'package:learning/flash_chat/flash_chat.dart';
 import 'package:learning/home.dart';
 import 'package:learning/magic_ball/magic_ball.dart';
 import 'package:learning/mi_card/mi_card.dart';
+import 'package:learning/number_trivia_clean/injection_container.dart' as di;
+import 'package:learning/number_trivia_clean/number_trivia_app.dart';
 import 'package:learning/quizzler/quizzler.dart';
 import 'package:learning/todoey/todoey_app.dart';
 import 'package:learning/xylophone/xylophone.dart';
@@ -28,11 +30,16 @@ final Map<String, Widget Function(BuildContext context)> navigationRoutes = {
   '/coin_ticker': (context) => const CoinTickerApp(),
   '/flash_chat': (context) => const FlashChatApp(),
   '/todoey': (context) => const TodoeyApp(),
+  '/number_trivia': (context) => const NumberTriviaApp(),
 };
 
-void main() => runApp(
-      MaterialApp(
-        initialRoute: navigationRoutes.keys.first,
-        routes: navigationRoutes,
-      ),
-    );
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
+  runApp(
+    MaterialApp(
+      initialRoute: navigationRoutes.keys.first,
+      routes: navigationRoutes,
+    ),
+  );
+}
